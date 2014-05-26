@@ -11,7 +11,7 @@ public class SimpleApp {
   public static void main(String[] args) {
     String logFile = "src/main/resources/IsaacNewtonWikipedials.txt"; // Should be some file on your system
     JavaSparkContext sc = new JavaSparkContext("local", "Simple App",
-      "/Users/feiyu/workspace/spark-0.9.0-incubating-bin-hadoop2", new String[]{"target/SparkExamples-Java-1.0.jar"});
+      System.getenv("SPARK_HOME"), JavaSparkContext.jarOfClass(SimpleApp.class));//new String[]{"target/SparkExamples-Java-1.0.jar"});
     /**
      * JavaSparkContext is used for initializing Spark 
      * Parameters of JavaSparkContext: 
@@ -21,7 +21,8 @@ public class SimpleApp {
      *                     ex: spark://***.com:7077
      * 2) String appName
      * 3) String sparkHome
-     * 4) String[] jars
+     * 4) String[] jars -> new String[]{"target/SparkExamples-Java-1.0.jar"} 
+     *                  -> or JavaSparkContext.jarOfClass(SimpleApp.class)
      */
     JavaRDD<String> logData = sc.textFile(logFile).cache();
 
@@ -38,9 +39,6 @@ public class SimpleApp {
     }).count();
 
     long numBs = logData.filter(new Function<String, Boolean>() {
-      /**
-       * 
-       */
       private static final long serialVersionUID = -2869498203320427536L;
 
       public Boolean call(String s) { return s.contains("apple"); }
