@@ -7,20 +7,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     <packaging>jar</packaging>
     <version>1.0</version>
 
-    <repositories>
-        <repository>
-            <id>Akka repository</id>
-            <url>http://repo.akka.io/releases</url>
-        </repository>
-    </repositories>
-
     <dependencies>
-        <!-- Spark dependency -->
-        <dependency> 
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-core_2.10</artifactId>
-            <version>0.9.0-incubating</version>
-        </dependency>
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-client</artifactId>
@@ -29,8 +16,15 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
-            <version>2.11.0</version>
+            <version>2.10.1</version>
         </dependency>
+        <!-- Spark dependency -->
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-streaming_2.10</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+		
     </dependencies>
 
     <prerequisites>
@@ -189,5 +183,12 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                 </plugin>
             </plugins>
         </build>
+
+    <repositories>
+        <repository>
+            <id>Akka repository</id>
+            <url>http://repo.akka.io/releases</url>
+        </repository>
+    </repositories>
 
     </project>
