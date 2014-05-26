@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <groupId>feiyu.com</groupId>
-    <artifactId>SparkExamples-Java</artifactId>
+    <artifactId>SparkPlayground</artifactId>
     <modelVersion>4.0.0</modelVersion>
-    <name>Spark Examples Java</name>
+    <name>Spark Playground</name>
     <packaging>jar</packaging>
     <version>1.0</version>
 
@@ -15,7 +15,8 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     </repositories>
 
     <dependencies>
-        <dependency> <!-- Spark dependency -->
+        <!-- Spark dependency -->
+        <dependency> 
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-core_2.10</artifactId>
             <version>0.9.0-incubating</version>
@@ -32,6 +33,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
         </dependency>
     </dependencies>
 
+    <prerequisites>
+        <maven>3.0.4</maven>
+    </prerequisites>
+
     <build>
         <plugins>
             <!--reference: http://ted-gao.blogspot.com/2011/09/mixing-scala-and-java-in-project.html -->
@@ -39,7 +44,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                 <inherited>true</inherited>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.0</version>
+                <version>3.1</version>
                 <configuration>
                     <source>1.7</source>
                     <target>1.7</target>
@@ -149,6 +154,37 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                             <include>**/*.java</include>
                             <include>**/*.scala</include>
                         </includes>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>2.5</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.5.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>2.4</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.3</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.6</version>
+                    <configuration>
+                        <encoding>UTF-8</encoding>
                     </configuration>
                 </plugin>
             </plugins>
