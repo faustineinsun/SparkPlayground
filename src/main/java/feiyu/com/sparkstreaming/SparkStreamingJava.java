@@ -19,11 +19,12 @@ import scala.Tuple2;
 import com.google.common.collect.Lists;
 
 public class SparkStreamingJava {
+
 	@SuppressWarnings("serial")
 	public static void main(String[] argv) {
 		SparkConf sparkConf = new SparkConf()
 			.setAppName("JavaStreamingWordCount")
-			.setMaster("local")
+			.setMaster("local[2]")
 			.setJars(JavaStreamingContext.jarOfClass(SparkStreamingJava.class));
 
 		// Create a StreamingContext with a SparkConf configuration
@@ -31,6 +32,7 @@ public class SparkStreamingJava {
 
 		// Create a DStream that will connect to serverIP:serverPort
 		JavaDStream<String> lines = jssc.socketTextStream("localhost", 9999); //@ modify this
+		// $ nc -lk 9999
 
 		// Split each line into words
 		JavaDStream<String> words = lines.flatMap(

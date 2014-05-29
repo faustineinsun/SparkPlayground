@@ -16,18 +16,13 @@ public class JavaWordCount {
 
   public static void main(String[] args) throws Exception {
 
-    if (args.length < 2) {
-      System.err.println("Usage: JavaWordCount <master> <file>");
-      System.exit(1);
-    }
-
     JavaSparkContext ctx = new JavaSparkContext(
-      args[0], 
+      "local", //spark://Feis-MacBook-Pro.local:7077
       "JavaWordCount",
       System.getenv("SPARK_HOME"), 
       JavaSparkContext.jarOfClass(JavaWordCount.class));
     
-    JavaRDD<String> lines = ctx.textFile(args[1], 1);//("hdfs://...");
+    JavaRDD<String> lines = ctx.textFile("hdfs://localhost:8020/user/feiyu/input/itemid.txt", 1);//("hdfs://...");
 
     JavaRDD<String> words = lines.flatMap(
       new FlatMapFunction<String, String>() {

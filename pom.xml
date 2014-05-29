@@ -6,6 +6,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     <name>Spark Playground</name>
     <packaging>jar</packaging>
     <version>1.0</version>
+    
+<properties>
+	<twitter4j-version>[4.0,)</twitter4j-version>
+</properties>
 
     <dependencies>
         <dependency>
@@ -24,6 +28,17 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 			<artifactId>spark-streaming_2.10</artifactId>
 			<version>0.9.1</version>
 		</dependency>
+		<!-- twitter apis -->
+        <dependency>
+            <groupId>org.twitter4j</groupId>
+            <artifactId>twitter4j-core</artifactId>
+            <version>${twitter4j-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.twitter4j</groupId>
+            <artifactId>twitter4j-stream</artifactId>
+            <version>${twitter4j-version}</version>
+        </dependency>
 		
     </dependencies>
 
@@ -188,6 +203,17 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
         <repository>
             <id>Akka repository</id>
             <url>http://repo.akka.io/releases</url>
+        </repository>
+        <repository>
+            <id>twitter4j.org</id>
+            <name>twitter4j.org Repository</name>
+            <url>http://twitter4j.org/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
     </repositories>
 
