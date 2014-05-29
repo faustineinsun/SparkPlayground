@@ -3,4 +3,4 @@ target/
 .classpath
 .project
 .cache
-*twitterconf.properties
+*config.properties
