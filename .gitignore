@@ -4,3 +4,4 @@ target/
 .project
 .cache
 *config.properties
+*dataset/
