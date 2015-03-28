@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+# credit https://databricks-training.s3.amazonaws.com/movie-recommendation-with-mllib.html
+
 import sys
 import itertools
 from math import sqrt
@@ -14,7 +16,6 @@ def parseRating(line):
     Parses a rating record in MovieLens format userId::movieId::rating::timestamp .
     """
     fields = line.strip().split("::")
-    print fields[0] + " " + fields[1] + " " + fields[2] + " " + fields[3]
     return long(fields[3]) % 10, (int(fields[0]), int(fields[1]), float(fields[2]))
 
 def parseMovie(line):
@@ -67,7 +68,6 @@ if __name__ == "__main__":
     myRatingsRDD = sc.parallelize(myRatings, 1)
     
     # load ratings and movie titles
-
     movieLensHomeDir = sys.argv[1]
 
     # ratings is an RDD of (last digit of timestamp, (userId, movieId, rating))
@@ -155,3 +155,4 @@ if __name__ == "__main__":
 
     # clean up
     sc.stop()
+
