@@ -1,7 +1,11 @@
-target/
+*target/
 .settings/
 .classpath
 .project
 .cache
 *config.properties
 *dataset/
+*.idea/*
+*resources/graphx/
+*verv/
+
