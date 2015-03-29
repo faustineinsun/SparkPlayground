@@ -1,7 +1,7 @@
 package feiyu.com.simpleexample;
 
 /**
- * This simple example of building a Spark standalone App in Java is from the website https://spark.apache.org/docs/0.9.0/quick-start.html  
+ * Reference https://spark.apache.org/docs/0.9.0/quick-start.html  
  * Modified by feiyu
  */
 import org.apache.spark.api.java.*;

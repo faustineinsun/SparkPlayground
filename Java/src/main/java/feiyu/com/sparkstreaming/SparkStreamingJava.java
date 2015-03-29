@@ -1,6 +1,6 @@
 package feiyu.com.sparkstreaming;
 /**
- * From https://spark.apache.org/docs/0.9.0/streaming-programming-guide.html
+ * Reference https://spark.apache.org/docs/0.9.0/streaming-programming-guide.html
  * http://ampcamp.berkeley.edu/3/exercises/realtime-processing-with-spark-streaming.html
  * modified by feiyu
  */

@@ -1,6 +1,6 @@
 package feiyu.com.javawordcount;
 /**
- * This example is from this website(http://spark.apache.org/docs/0.9.0/java-programming-guide.html)
+ * Reference: http://spark.apache.org/docs/0.9.0/java-programming-guide.html
  * Modified by feiyu
  */
 
